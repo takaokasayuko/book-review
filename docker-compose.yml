@@ -1,0 +1,54 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    stdin_open: true
+    tty: true
+    ports:
+      - 3000:3000
+    command: /bin/sh -c "bundle install && rm -f tmp/pids/server.pid && bin/rails s -b 0.0.0.0 -p 3000"
+    environment:
+      DB_HOST: mysql
+      DB_USER: user
+      DB_PASS: password
+      DB_PORT: 5432
+    depends_on:
+      - mysql
+    volumes:
+      - .:/app:delegated
+      - bundle-data:/usr/local/bundle:delegated
+
+  mysql:
+    image: mysql:8.0.30
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: rails_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      TZ: Asia/Tokyo
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: mysql
+      PMA_USER: user
+      PMA_PASSWORD: password
+    depends_on:
+      - mysql
+    ports:
+      - 8080:80
+    volumes:
+      - pma-data:/var/lib/phpmyadmin
+
+volumes:
+  mysql-data:
+  bundle-data:
+  pma-data:

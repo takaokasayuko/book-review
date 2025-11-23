@@ -23,5 +23,14 @@ module App
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.generators do |g|
+      g.skip_routes true
+      g.helper false
+      g.assets false
+      g.test_framework :rspec,
+      controller_specs: false,
+            view_specs: false,
+         routing_specs: false
+    end
   end
 end

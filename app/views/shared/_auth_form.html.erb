@@ -1,0 +1,17 @@
+<div class="content__auth-form">
+  <h1 class="auth-form__ttl"><%= form_ttl %></h1>
+  <div class="auth-form__form">
+    <%= form_with(model: @user, url: form_path) do |f| %>
+      <div class="auth-form__input-group">
+        <%= f.label :email, "メールアドレス", class: "auth-form__label" %>
+        <%= f.email_field :email, class: "auth-form__input" %>
+      </div>
+      <div class="auth-form__input-group">
+        <%= f.label :password, "パスワード", class: "auth-form__label" %>
+        <%= f.password_field :password, class: "auth-form__input" %>
+      </div>
+      <%= f.submit button_text, class: "auth-form__button" %>
+    <% end %>
+    <%= link_to link_text, link_path, class: "auth-form__link" %>
+  </div>
+</div>

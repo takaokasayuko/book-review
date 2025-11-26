@@ -42,3 +42,17 @@
 .auth-form__link:hover {
   color: #00BFFF;
 }
+
+
+@media screen and (max-width : 768px) {
+  .content__auth-form {
+    width: 70%;
+  }
+}
+
+/* スマホサイズ */
+@media screen and (max-width : 480px) {
+  .content__auth-form {
+      width: 90%;
+    }
+}

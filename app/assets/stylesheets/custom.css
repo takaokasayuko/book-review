@@ -15,6 +15,10 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+}
+
 /* ヘッダー */
 .header {
   background: black;

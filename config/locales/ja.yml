@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+
+    errors:
+      messages:
+        invalid: "の書式が正しくありません"
+        invalid_password: "は英文字と数字を含めてください"

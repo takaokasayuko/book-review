@@ -7,7 +7,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX, allow_blank: true },
                     uniqueness: { case_sensitive: false, allow_blank: true }
   has_secure_password
-  validates :password, format: { 
+  validates :password, format: {
                         with: VALID_PASSWORD_REGEX,
                         message: :invalid_password
                       },

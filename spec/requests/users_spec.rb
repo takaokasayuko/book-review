@@ -8,7 +8,7 @@ RSpec.describe "Users", type: :request do
     end
   end
 
-  describe "POST /signup" do  
+  describe "POST /signup" do
     it "新規ユーザー登録後ホーム画面にリダイレクト" do
       user = create(:user)
       get root_path

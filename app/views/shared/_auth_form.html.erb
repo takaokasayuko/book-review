@@ -1,8 +1,8 @@
 <div class="content__auth-form">
   <h1 class="auth-form__ttl"><%= form_ttl %></h1>
   <div class="auth-form__form">
-    <%= form_with(model: @user, url: form_path) do |f| %>
-    <%= render "shared/error_messages", object: f.object %>
+    <%= form_with(model: @user, url: form_path, scope: form_scope) do |f| %>
+    <%= render "shared/error_messages", object: @user %>
       <div class="auth-form__input-group">
         <%= f.label :email, "メールアドレス", class: "auth-form__label" %>
         <%= f.email_field :email, class: "auth-form__input" %>

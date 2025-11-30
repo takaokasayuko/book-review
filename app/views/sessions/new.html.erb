@@ -1,2 +1,8 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<% content_for :title, "ログイン" %>
+<%= render "shared/auth_form",
+  form_ttl: "ログイン",
+  form_path: login_path,
+  form_scope: :session,
+  button_text: "ログイン",
+  link_text: "会員登録はこちら",
+  link_path: signup_path %>

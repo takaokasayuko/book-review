@@ -1,3 +1,17 @@
-<header class="header">
-  <%= link_to "BookReview", root_path, class: "header-logo__link" %>
+<header>
+  <div class="header">
+    <div class="header-logo">
+      <%= link_to "BookReview", root_path, class: "header-logo__link" %>
+    </div>
+    <% if logged_in? %>
+      <div class="header-nav">
+        <nav>
+          <ul class="navbar-munu">
+            <li class="navbar-list"><%= link_to "BOOK", "#", class: "navbar-list__link" %></li>
+            <li class="navbar-list"><%= link_to "LOGOUT", logout_path, data: { "turbo-method": :delete }, class: "navbar-list__link" %></li>
+          </ul>
+        </nav>
+      </div>
+    <% end %>
+  </div>
 </header>

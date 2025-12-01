@@ -5,4 +5,12 @@ class ApplicationController < ActionController::Base
   # Changes to the importmap will invalidate the etag for HTML responses
   stale_when_importmap_changes
   include SessionsHelper
+
+  private
+
+   def logged_in_user
+    unless logged_in?
+      redirect_to login_path
+    end
+  end
 end
